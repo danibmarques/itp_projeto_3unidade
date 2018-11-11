@@ -42,7 +42,7 @@ int main(void) {
 
     for(i=0; i<n_t; i++){
       tabelas[i]=criar_tab;
-      fprintf(arquivo, tabelas[i]);
+     fprintf(arquivo, "%s", tabelas);
     }
   }
   fclose(arquivo);
