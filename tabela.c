@@ -8,7 +8,6 @@ typedef struct tabela{
 }Tabela;
 
 int main(void) {
-  printf("Hello World\n");
   char p = 'n';
   int n_t,i;
   while(p != 's'){
