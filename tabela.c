@@ -36,17 +36,45 @@ int main(void) {
 
 
 Tabela* criar_tab(void){
-  int nt,i,j;
-  Tabela *n;
-  printf("Quantas tabelas deseja criar ?");
-  scanf(" %i", &nt);
-  Tabela tabelas[nt];
-  for(i=0; i<nt; i++){
-    strcpy(tabelas[i].nome, "NULL");
-  }
-  for(i=0; i<nt; i++){
+  int nt,i,qt;
+  char nomet [20];
+  //armazena temporiamente o nome da coluna
+  char coluna[21];
+  //armazena temporiamente o nome do tipo
+  char t[8];
+  Tabela *tab;
+  tab = malloc(sizeof(Tabela)*1);
   printf("Qual será o nome da tabela %i ?", i+1);
-  scanf(" %s", tabelas[i].nome);
+  scanf(" %s", nomet);
+  printf("Quantas colunas terá a tabela %i", i+1);
+  scanf(" %i", &qt);
+  //aloca uma string para o nome e atribui o valor dado pelo usuário
+  tab->nomes = malloc(sizeof(char)*20);
+  tab->nomes = nomet;
+  //aloca um vetor de strings para os campos(colunas)
+  tab->campos = malloc(sizeof(*char)*qt);
+  //aloca um vetor de strings para os tipos(tipo da variável)
+  tab->tipos = malloc(sizeof(*char)*qt);
+  //define o tamanho que cada string terá
+  for(i=0; i<qt; i++){
+    tab->campos[i] = malloc(sizeof(char)*21);
+    tab->tipos[i] = malloc(sizeof(char)*8);
+  }
+  
+  for(i=0; i<qt; i++){
+    for(j=0;j<21;j++){   
+    prinf("Qual será o nome da coluna ?");
+    scanf("%s", &coluna);
+    nt = strlen(coluna);
+    if(nt<=0){
+      printf("Erro, nome da coluna é inválido.");
+    } else {
+        tab->campos[i][j]=coluna;
+    } 
+     printf("Qual será o tipo dessa coluna ?");
+     scanf("%s", &tipo);
+    
+  }
   }
 
   
