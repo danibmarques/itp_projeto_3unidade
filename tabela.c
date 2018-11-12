@@ -63,7 +63,7 @@ Tabela* criar_tab(void){
   
   for(i=0; i<qt; i++){
     for(j=0;j<21;j++){   
-    prinf("Qual será o nome da coluna ?");
+    printf("Qual será o nome da coluna ?");
     scanf("%s", &coluna);
     nt = strlen(coluna);
     if(nt<=0){
