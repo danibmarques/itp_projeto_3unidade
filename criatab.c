@@ -1,4 +1,7 @@
-#include<criatab.h>
+#include "criatab.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 Tabela* criar_tab(void){
   int nt,i,qt;
@@ -9,18 +12,18 @@ Tabela* criar_tab(void){
   char t[8];
   Tabela *tab;
   tab = malloc(sizeof(Tabela)*1);
-  printf("Qual ser· o nome da tabela %i ?", i+1);
+  printf("Qual ser√° o nome da tabela %i ?", i+1);
   scanf(" %s", nomet);
-  printf("Quantas colunas ter· a tabela %i", i+1);
+  printf("Quantas colunas ter√° a tabela %i", i+1);
   scanf(" %i", &qt);
-  //aloca uma string para o nome e atribui o valor dado pelo usu·rio
+  //aloca uma string para o nome e atribui o valor dado pelo usu√°rio
   tab->nomes = malloc(sizeof(char)*20);
   tab->nomes = nomet;
   //aloca um vetor de strings para os campos(colunas)
   tab->campos = malloc(sizeof(char)*qt);
-  //aloca um vetor de strings para os tipos(tipo da vari·vel)
+  //aloca um vetor de strings para os tipos(tipo da vari√°vel)
   tab->tipos = malloc(sizeof(char)*qt);
-  //define o tamanho que cada string ter·
+  //define o tamanho que cada string ter√°
 
   for(i=0; i<qt; i++){
     tab->campos[i] = malloc(sizeof(char)*21);
@@ -32,7 +35,7 @@ for(i=0; i<qt; i++){
     // t_t tamanho do tipo
     int t_c,t_t;
     if(i==0){
-      printf("Qual ser· o nome da coluna principal(chave primaria)?\n")
+      printf("Qual ser√° o nome da coluna principal(chave primaria)?\n")
       scanf("%s", &coluna);
       //obtem o tamanho da string coluna
       t_c = strlen(coluna);
@@ -41,22 +44,22 @@ for(i=0; i<qt; i++){
       t_t = strlen(t);
       //verifica se o tamanho das strings para coluna e tipo maiores que 0
       if(t_c<=0 || t_t<=0){
-      printf("Nome da coluna ou do tipo È pequeno demais.\n");
+      printf("Nome da coluna ou do tipo √© pequeno demais.\n");
     } else {
       tab->campos[i]=coluna;
       tab->tipos[i]=t;
       }
     } else {
-    printf("Qual ser· o nome da coluna ?\n");
+    printf("Qual ser√° o nome da coluna ?\n");
     scanf("%s", &coluna);
     //obtem o tamanho da string coluna
     t_c = strlen(coluna);
-    printf("Qual ser· o tipo da coluna ?\n");
+    printf("Qual ser√° o tipo da coluna ?\n");
     scanf("%s", &t);
     //obtem o tamanho da string tipo
     t_t = strlen(t);
     if(t_c<=0 || t_t<=0){
-      printf("Nome da coluna ou do tipo È pequeno demais.\n");
+      printf("Nome da coluna ou do tipo √© pequeno demais.\n");
     } else {
       tab->campos[i]=coluna;
       tab->tipos[i]=t;
