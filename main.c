@@ -11,18 +11,23 @@ int main()
       printf( "Erro na abertura do arquivo" );
   }else{
   while(p != 's'){
-    printf("Deseja criar uma nova tabela ?(s ou n)");
-    scanf("%c", &p);
+    printf("Deseja criar uma nova tabela ?(s ou n)\n");
+    scanf(" %c", &p);
     printf("Quantas tabelas deseja criar ?");
-    scanf(" %i", &n_t);
-    Tabela tabelas[n_t];
+    scanf("%i", &n_t);
+    Tabela *tabelas[n_t];
 
     for(i=0; i<n_t; i++){
-      tabelas[i]=criar_tab;
-     fprintf(arquivo, "%s", tabelas);
+      tabelas[i]=criar_tab();
+    // fprintf(arquivo, "%s", tabelas);
+    }
+    for(i=0; i<n_t; i++){
+      printf("%s", tabelas[i]->nome);
+
+     fprintf(arquivo, "%s", tabelas[i]->nome);
     }
   }
-  fclose(arquivo);
+ fclose(arquivo);
   }
 
   return 0;
